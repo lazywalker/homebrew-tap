@@ -1,30 +1,30 @@
 class Rgrc < Formula
   desc "Rusty Generic Colouriser - just like grc but fast"
   homepage "https://github.com/lazywalker/rgrc"
-  version "0.6.13"
+  version "0.6.14"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/lazywalker/rgrc/releases/download/v#{version}/rgrc-aarch64-apple-darwin.tar.gz"
-      sha256 "14c0d2c4762bf79094f89da83bcd51f846d5f493ddd65cdb50788b6c00ae69a6"
+      sha256 "6e3f8220ba14a37e5b5163bae39846a0666768d13b4a52476466fd8083284b21"
     end
 
     on_intel do
       url "https://github.com/lazywalker/rgrc/releases/download/v#{version}/rgrc-x86_64-apple-darwin.tar.gz"
-      sha256 "8975c89e13f3ad4c5f55aed61641dafe41fbdf1db2cbd61fe427aae947ff30c9"
+      sha256 "aef0f797ddc2d8515955351b5ec709e7a073fafb59de986bebf1d0109ebfde85"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/lazywalker/rgrc/releases/download/v#{version}/rgrc-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "31a1811d3b4897dff9fcf49ecdfbb85b62a5c044aeb1ca5c2bcf0ea1f763599f"
+      sha256 "0e12545384c3c76396ff2afb42a53c15ef244a994fad7b271a016b56a9a0e499"
     end
 
     on_intel do
       url "https://github.com/lazywalker/rgrc/releases/download/v#{version}/rgrc-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "5d9cfaba0a37e2e32972128c1f182b59a166116c789e70a7c03f89edff7cb28a"
+      sha256 "3256f69256a63fdb8b2084a879ba60bbbdafd530e69c68360530197f5b065e76"
     end
   end
 
