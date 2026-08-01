@@ -4,6 +4,10 @@ class Rgrc < Formula
   version "0.6.14"
   license "MIT"
 
+  # rgrc release assets currently omit the version in the filename
+  # (rgrc-<triple>.tar.gz). The update-checksums.sh script tries the
+  # versioned name first and falls back to this form. rgrc may ship
+  # versioned assets in a future release, which will need no formula change.
   on_macos do
     on_arm do
       url "https://github.com/lazywalker/rgrc/releases/download/v#{version}/rgrc-aarch64-apple-darwin.tar.gz"

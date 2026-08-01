@@ -89,13 +89,18 @@ main() {
         exit 1
     fi
 
-    local TRIPLE url sha
+    local TRIPLE url_v url_u sha
     for TRIPLE in "${TRIPLES[@]}"; do
-        url="${BASE}/${FORMULA}-${VERSION}-${TRIPLE}.tar.gz"
-        sha="$(download_and_checksum "$url")"
-        if [[ -z "$sha" ]]; then
-            error "Failed to get checksum for ${TRIPLE}"
-            exit 1
+        # Try the versioned asset name first. rgrc still ships unversioned
+        # assets, so fall back to <formula>-<triple> when the versioned one 404s.
+        url_v="${BASE}/${FORMULA}-${VERSION}-${TRIPLE}.tar.gz"
+        url_u="${BASE}/${FORMULA}-${TRIPLE}.tar.gz"
+        sha=""
+        if ! sha="$(download_and_checksum "$url_v")"; then
+            sha="$(download_and_checksum "$url_u")" || {
+                error "Failed to get checksum for ${TRIPLE}"
+                exit 1
+            }
         fi
 
         sed -i.bak -e "/${TRIPLE}/{" -e "n" -e "s/sha256 \"[^\"]*\"/sha256 \"${sha}\"/" -e "}" "$FORMULA_FILE"
