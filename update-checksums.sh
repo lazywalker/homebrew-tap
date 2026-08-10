@@ -83,7 +83,7 @@ main() {
     echo
 
     local TRIPLES
-    TRIPLES=($(grep -oE '(aarch64-apple-darwin|x86_64-apple-darwin|aarch64-unknown-linux-musl|x86_64-unknown-linux-gnu|x86_64-unknown-linux-musl)' "$FORMULA_FILE" | sort -u))
+    TRIPLES=($(grep -oE '(aarch64-apple-darwin|x86_64-apple-darwin|aarch64-unknown-linux-gnu|aarch64-unknown-linux-musl|x86_64-unknown-linux-gnu|x86_64-unknown-linux-musl)' "$FORMULA_FILE" | sort -u))
     if [[ ${#TRIPLES[@]} -eq 0 ]]; then
         error "No known target triples found in $FORMULA_FILE"
         exit 1

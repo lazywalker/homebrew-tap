@@ -8,6 +8,7 @@ Personal Homebrew tap for small command-line tools.
 brew tap lazywalker/tap
 brew install rgrc
 brew install zukan
+brew install lazydns
 ```
 
 `brew tap` clones this repo; the formulae live in `Formula/`.
@@ -18,6 +19,7 @@ brew install zukan
 |---------|-------------|--------|
 | `rgrc`  | Rusty Generic Colouriser, like `grc` but fast | [lazywalker/rgrc](https://github.com/lazywalker/rgrc) |
 | `zukan` | Monster Hunter bestiary in your terminal | [lazywalker/zukan](https://github.com/lazywalker/zukan) |
+| `lazydns` | DNS server/forwarder in Rust | [lazywalker/lazydns](https://github.com/lazywalker/lazydns) |
 
 ## Maintaining
 
