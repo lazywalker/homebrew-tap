@@ -61,6 +61,9 @@ main() {
     if [[ $# -ge 2 ]]; then
         VERSION="$2"
         info "Using version from command line: $VERSION"
+        # Bump the version declared in the formula to the requested one.
+        sed -i.bak -E "s/^([[:space:]]*version[[:space:]]+\")[^\"]+(\")/\1${VERSION}\2/" "$FORMULA_FILE"
+        rm -f "${FORMULA_FILE}.bak"
     else
         VERSION="$(get_version_from_formula)"
         if [[ -z "$VERSION" ]]; then
